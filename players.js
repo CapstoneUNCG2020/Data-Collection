@@ -87,7 +87,7 @@ class Players{
                                     
                                     //query to insert into PlayersModified Table
                                     var insertInc = 0;
-                                    console.log("PlayerSummonerName: "+playerSummonerName+" playerId: "+playerId+" teamCode: "+ teamCode);
+                                    console.log("firstName: "+playerFirstName+" lastName: "+playerLastName+"PlayerSummonerName: "+playerSummonerName+" playerId: "+playerId+" teamCode: "+ teamCode);
                                     let sql = "INSERT INTO Players (`playerId`, `firstName`, `lastName`, `displayName`, `image`, `teamName`, `teamCode`, `teamId`, `role`, `region`) VALUES ('" + playerId + "','" + playerFirstName + "','" + playerLastName.replace("'", "") + "','" + playerSummonerName + "','" + playerImage + "','" + teamName + "','" + teamCode + "','" + teamId + "','" +playerRole+"','" +homeLeagueName+"')";
                                     con.query(sql, function (err, result) {
                                         if (err) throw err;
