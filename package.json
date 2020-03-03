@@ -1,0 +1,23 @@
+{
+  "name": "api-testing",
+  "version": "1.0.0",
+  "description": "API Testing for League Of Legends eSports",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "LOL",
+    "eSports"
+  ],
+  "author": "Gabriel Wilmoth",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.0"
+  }
+}
