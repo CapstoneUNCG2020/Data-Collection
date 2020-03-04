@@ -1,4 +1,6 @@
 # Data-Collection
+## Requirements
+ - Node.JS
  
 ## Setup:
  - run `npm install`
