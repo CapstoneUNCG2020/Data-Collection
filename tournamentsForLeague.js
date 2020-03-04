@@ -41,6 +41,7 @@ class TournamentsForLeague{
     * headers :- contains the headers required to perform the GET request
     */
     async apiGetTournaments(headers){
+        var tournamentArray = [];
         for(var i = 0; i < (Object.keys(this.leagueId).length); i++){
             const api_url = 'https://esports-api.lolesports.com/persisted/gw/getTournamentsForLeague?hl=en-US&leagueId='.concat(this.leagueId[i].regionLeagueId);
             const response = await fetch(api_url, { method: 'GET', headers: headers });
@@ -55,11 +56,13 @@ class TournamentsForLeague{
                 var startDate = tournaments[j].startDate;
                 startDate = startDate.substring(0,4);
                 if(startDate == year){
-                    console.log("StartDate: "+startDate+" Tournaments"+JSON.stringify(tournaments[j]));
-                    this.apiGetSchedule(headers, i);
+                    //console.log("StartDate: "+startDate+" Tournaments"+ JSON.stringify(tournaments[j]));
+                    tournamentArray.push(tournaments[j]);
+                    //this.apiGetSchedule(headers, i);
                 }
             } 
         }
+        return tournamentArray;
     }
 
     /* Helper Method to apiGetTorunaments
