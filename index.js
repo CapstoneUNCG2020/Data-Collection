@@ -52,36 +52,36 @@ leagueId = [
     { 'regionLeagueId': '98767975604431411' }  //Worlds : International
 ]
 
-//scheduleForLeague = new scheduleForLeagueImpl();
+scheduleForLeague = new scheduleForLeagueImpl();
 
-//scheduleForLeague.getScheduleForLeague(headers, leagueId);
+scheduleForLeague.getScheduleForLeague(headers, leagueId);
 
-tournamentsForLeague = new tournamentsForLeagueImpl();
+// tournamentsForLeague = new tournamentsForLeagueImpl();
 
 
-(async () => {
-    var tournamentIdArray = await getTournamentIds();
+// (async () => {
+//     var tournamentIdArray = await getTournamentIds();
     
-    standingsForTournament = new standingsForTournamentImpl();
+//     standingsForTournament = new standingsForTournamentImpl();
     
-    standingsForTournament.getStandingsForTournament(headers, tournamentIdArray);
-    // all of the script.... 
+//     standingsForTournament.getStandingsForTournament(headers, tournamentIdArray);
+//     // all of the script.... 
 
-})();
-
-
+// })();
 
 
 
-async function getTournamentIds(){
-    var arrayOfTournamentIds;
-    arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
-
-    // for(var i = 0; i < arrayOfTournamentIds.length; i++){
-    //     console.log(arrayOfTournamentIds[i].toString());
-    // }
 
 
+// async function getTournamentIds(){
+//     var arrayOfTournamentIds;
+//     arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
 
-    return arrayOfTournamentIds;
-}
+//     // for(var i = 0; i < arrayOfTournamentIds.length; i++){
+//     //     console.log(arrayOfTournamentIds[i].toString());
+//     // }
+
+
+
+//     return arrayOfTournamentIds;
+// }

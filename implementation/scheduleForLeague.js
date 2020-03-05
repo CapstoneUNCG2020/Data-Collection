@@ -44,6 +44,9 @@ class ScheduleForLeagueImpl{
         //A list of all the scheduled events for the given split.
         var allScheduledEvents = parsedJson.data.schedule.events;
 
+        
+        var values = [];
+
         //Symbolizing that we need to run through all possible combos
         for (var i = 0; i < (Object.keys(allScheduledEvents).length); i++) {
             //to get the startTime
@@ -85,14 +88,23 @@ class ScheduleForLeagueImpl{
                 var teamCode = allScheduledEvents[i].match.teams[0].code;
                 var teamCode2 = allScheduledEvents[i].match.teams[1].code;
 
-                //query to insert into Events Table
-                var inc = 0;
-                var sql = "INSERT INTO Events (`eventId`, `name`, `startTime`, `currentState`, `teamName`, `teamCode`, `teamName2`, `teamCode2`) VALUES ('" + matchID + "','" + name + "','" + startTime + "','" + state + "','" + teamName + "','" + teamCode + "','" + teamName2 + "','" + teamCode2 + "')";
-                con.query(sql, function (err, result) {
-                    if (err) throw err;
-                    console.log("1 record inserted, total: " + (++inc));
-                });
+                let arrayOfValues = [];
+                arrayOfValues.push(matchID, name, startTime, state, teamName, teamCode, teamName2, teamCode2);
+                values.push(arrayOfValues);
             }
+        }
+
+        //query to insert into Events Table
+        //var sql = "INSERT INTO Events (`eventId`, `name`, `startTime`, `currentState`, `teamName`, `teamCode`, `teamName2`, `teamCode2`) VALUES ('" + matchID + "','" + name + "','" + startTime + "','" + state + "','" + teamName + "','" + teamCode + "','" + teamName2 + "','" + teamCode2 + "')";
+
+        var inc = 0;
+        if(values.length > 0){
+            //query to insert a batch into Events Table.
+            var sql = "INSERT INTO Events (eventId, name, startTime, currentState, teamName, teamCode, teamName2, teamCode2) VALUES ?";
+            con.query(sql, [values], function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted, total: " + (++inc));
+            });
         }
     }
 }
