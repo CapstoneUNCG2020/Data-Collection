@@ -9,7 +9,7 @@ const tempPlayer = require('./tempPlayer.js');
 //New Imports
 const tournamentsForLeagueImpl = require('./implementation/tournamentsForLeagueImpl');
 const scheduleForLeagueImpl = require('./implementation/scheduleForLeague');
-const standingsForTournamentImpl = require('./implementation/standingsForTournament');
+const standingsAndPlayersForTournamentImpl = require('./implementation/standingsAndPlayersForTournament');
 // const Car = require('./car.js');
 
 // myCar = new Car();
@@ -52,36 +52,32 @@ leagueId = [
     { 'regionLeagueId': '98767975604431411' }  //Worlds : International
 ]
 
-scheduleForLeague = new scheduleForLeagueImpl();
+// scheduleForLeague = new scheduleForLeagueImpl();
 
-scheduleForLeague.getScheduleForLeague(headers, leagueId);
+// scheduleForLeague.getScheduleForLeague(headers, leagueId);
 
-// tournamentsForLeague = new tournamentsForLeagueImpl();
+tournamentsForLeague = new tournamentsForLeagueImpl();
 
 
-// (async () => {
-//     var tournamentIdArray = await getTournamentIds();
+(async () => {
+    var tournamentIdArray = await getTournamentIds();
     
-//     standingsForTournament = new standingsForTournamentImpl();
+    standingsAndPlayersForTournament = new standingsAndPlayersForTournamentImpl();
     
-//     standingsForTournament.getStandingsForTournament(headers, tournamentIdArray);
-//     // all of the script.... 
-
-// })();
+    standingsAndPlayersForTournament.getStandingsForTournament(headers, tournamentIdArray);
+})();
 
 
 
 
 
-// async function getTournamentIds(){
-//     var arrayOfTournamentIds;
-//     arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
+async function getTournamentIds(){
+    var arrayOfTournamentIds;
+    arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
 
-//     // for(var i = 0; i < arrayOfTournamentIds.length; i++){
-//     //     console.log(arrayOfTournamentIds[i].toString());
-//     // }
+    // for(var i = 0; i < arrayOfTournamentIds.length; i++){
+    //     console.log(arrayOfTournamentIds[i].toString());
+    // }
 
-
-
-//     return arrayOfTournamentIds;
-// }
+    return arrayOfTournamentIds;
+}
