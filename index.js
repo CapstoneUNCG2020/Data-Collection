@@ -6,6 +6,7 @@ require('dotenv').config();
 const tournamentsForLeagueImpl = require('./implementation/tournamentsForLeagueImpl');
 const scheduleForLeagueImpl = require('./implementation/scheduleForLeague');
 const standingsAndPlayersForTournamentImpl = require('./implementation/standingsAndPlayersForTournament');
+const eventDetailsImpl = require('./implementation/eventDetails');
 
 const api_key = process.env.API_KEY;
 
@@ -33,20 +34,24 @@ leagueId = [
 
 // scheduleForLeague.getScheduleForLeague(headers, leagueId);
 
-tournamentsForLeague = new tournamentsForLeagueImpl();
+// tournamentsForLeague = new tournamentsForLeagueImpl();
 
 
-(async () => {
-    var tournamentIdArray = await getTournamentIds();
+eventDetails = new eventDetailsImpl();
+eventDetails.notAClue(headers);
+
+
+// (async () => {
+//     var tournamentIdArray = await getTournamentIds();
     
-    standingsAndPlayersForTournament = new standingsAndPlayersForTournamentImpl();
+//     standingsAndPlayersForTournament = new standingsAndPlayersForTournamentImpl();
     
-    standingsAndPlayersForTournament.getStandingsForTournament(headers, tournamentIdArray);
-})();
+//     standingsAndPlayersForTournament.getStandingsForTournament(headers, tournamentIdArray);
+// })();
 
-async function getTournamentIds(){
-    var arrayOfTournamentIds;
-    arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
+// async function getTournamentIds(){
+//     var arrayOfTournamentIds;
+//     arrayOfTournamentIds = await tournamentsForLeague.getTournamentsForYearId(headers, leagueId);
 
-    return arrayOfTournamentIds;
-}
+//     return arrayOfTournamentIds;
+// }

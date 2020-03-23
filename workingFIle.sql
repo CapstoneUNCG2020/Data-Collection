@@ -59,3 +59,17 @@ TRUNCATE TABLE Players;
 ALTER TABLE Players CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 SELECT * FROM Events as e WHERE e.teamCode = 'FBA' OR e.teamCode2 = 'FBA';
 SELECT * FROM Players as p WHERE p.playerId = '99566406025035944';
+
+
+
+
+
+
+
+SELECT * FROM EventPoints;
+ALTER TABLE EventPoints
+ADD COLUMN participantId int,
+ADD COLUMN teamId VARCHAR(20);
+
+SELECT * FROM Events WHERE Events.name = 'LCS' and Events.teamCode = '100' and Events.startTime = '2020-02-22 22:00:00';
+SELECT * FROM Players WHERE Players.region = 'LCS' and Players.teamcode = '100';
