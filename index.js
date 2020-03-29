@@ -30,16 +30,13 @@ leagueId = [
     { 'regionLeagueId': '98767975604431411' }  //Worlds : International
 ]
 
+//Fills out Events Table
 // scheduleForLeague = new scheduleForLeagueImpl();
 
 // scheduleForLeague.getScheduleForLeague(headers, leagueId);
 
+//Fills out Players Table
 // tournamentsForLeague = new tournamentsForLeagueImpl();
-
-
-eventDetails = new eventDetailsImpl();
-eventDetails.notAClue(headers);
-
 
 // (async () => {
 //     var tournamentIdArray = await getTournamentIds();
@@ -55,3 +52,7 @@ eventDetails.notAClue(headers);
 
 //     return arrayOfTournamentIds;
 // }
+
+//Fills out EventPoints Table
+eventDetails = new eventDetailsImpl();
+eventDetails.notAClue(headers);
